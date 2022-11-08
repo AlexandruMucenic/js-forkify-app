@@ -120,6 +120,10 @@ const controlAddRecipe = async function (newRecipe) {
   }
 };
 
+const newFeature = function () {
+  console.log('Welcome to the application!');
+};
+
 const init = function () {
   // when the page loads, this function will run, and it will run the add handler method in the view, which listens for the load and hash change events, the applies controlRecipes function
   bookmarksView.addHandlerRender(controlBookmarks);
@@ -129,5 +133,6 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addEventHandlerClick(controlPagination); // this needs to be researched and learned publisher subscriber method
   addRecipeView.addHandlerUpload(controlAddRecipe);
+  newFeature();
 };
 init();
