@@ -10,10 +10,6 @@ import addRecipeView from './views/addRecipeView.js';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-// if (module.hot) {
-//   module.hot.accept;
-// }
-
 const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1); // gets the id from hash
@@ -67,9 +63,9 @@ const controlPagination = function (goToPage) {
 
 const controlServings = function (newServings) {
   // update the recipe servings (in state)
+
   model.updateServings(newServings);
   // update the recipeView
-  // recipeView.render(model.state.recipe);
   recipeView.update(model.state.recipe);
 };
 
@@ -120,10 +116,6 @@ const controlAddRecipe = async function (newRecipe) {
   }
 };
 
-const newFeature = function () {
-  console.log('Welcome to the application!');
-};
-
 const init = function () {
   // when the page loads, this function will run, and it will run the add handler method in the view, which listens for the load and hash change events, the applies controlRecipes function
   bookmarksView.addHandlerRender(controlBookmarks);
@@ -133,6 +125,5 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addEventHandlerClick(controlPagination); // this needs to be researched and learned publisher subscriber method
   addRecipeView.addHandlerUpload(controlAddRecipe);
-  newFeature();
 };
 init();
